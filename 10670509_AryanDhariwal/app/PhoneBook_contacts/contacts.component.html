@@ -1,0 +1,90 @@
+
+<body style="background-color:powderblue;">
+<section align="center" class="alert alert-danger">
+    <i class='fas fa-address-book'></i>Phone Book App
+
+</section>
+
+<section class="alert alert-info">
+  <b> Contacts</b>
+  
+  <section align="right"><button type="button" class="btn btn-primary" routerLink="/add" >Add Contact</button></section>
+  <br/>
+  
+
+</section>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="navbar navbar-expand-sm bg-light navbar-light" placeholder="Search By Name" #myInput [(ngModel)]="contact.name" (input)="Search()" style="width: 900px;"/>
+
+    <section class="text-dark" *ngIf="funcalled">
+    <section *ngFor="let contact of contactSearch" class="alert alert-warning" id="display">
+        
+      <li>
+        
+        <b>  {{contact.Firstname }}   {{contact.Lastname}} </b><br/>
+        {{contact.ContactNumber}}
+        </li>
+    </section>
+
+</section>
+
+<div class="card" style="width: 128rem;" id="d1">
+    <div class="container p-9 my-9 bg-dark text-white">
+    <ul class="list-group list-group-flush" id="d1" >
+        <div *ngFor="let contact of contacts" id="d1">
+            
+            
+            
+           <b> <li class="list-group-item"> {{contact.Firstname}}   {{contact.Lastname}}</li></b>
+            <li class="list-group-item"><p [class]="icon"> &nbsp;&nbsp;{{contact.ContactNumber}} 
+            
+              <div align="right"> <button type="button" class="btn btn-default btn-sm" (click)="deleteCont(contact)">
+                    <span class="glyphicon glyphicon-remove"></span> 
+                  </button>
+                  <button type="button" class="btn btn-default btn-sm" (click)="editCont(contact)">
+                    <span class="glyphicon glyphicon-edit"></span> 
+                  </button>
+                
+                </div>
+                </li>
+                
+                
+        </div>
+        </ul>
+        </div>
+        </div>
+
+        <section *ngIf="Edit_Function">
+         
+         <label>Name</label>
+         <input type="text" class="form-control" [(ngModel)]="contactDelete.Firstname" >
+         <label>Last Name</label>
+          <input type="text" class="form-control" [(ngModel)]="contactDelete.Lastname" >
+          <label>Contact Number </label>
+          <input type="text" class="form-control"[(ngModel)]="contactDelete.ContactNumber">
+          <button type="button" class="btn btn-default btn-sm" (click)="editCont(contact)">Update
+</button>
+
+        </section>
+<router-outlet></router-outlet>
+<section style="background-color:grey;">
+
+</section>
+
+
+<div *ngIf="updateSuccess">
+
+<p class="alert-info">
+
+  Update Success
+</p>
+
+</div>
+        </body>
+      
+
+
+
+
+
+
